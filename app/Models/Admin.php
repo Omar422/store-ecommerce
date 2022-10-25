@@ -12,4 +12,9 @@ class Admin extends Authenticatable
     // protected $table = "admins"; // it's with laravel con
     protected $guarded = []; // all fields
     public $timestamps = true;
+
+    // cast to native types
+    // protected $casts = [
+    //     'password' => '',
+    // ];
 }
