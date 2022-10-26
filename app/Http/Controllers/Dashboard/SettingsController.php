@@ -46,7 +46,7 @@ class SettingsController extends Controller
             DB::transaction();
 
             $shipping_method -> update([
-                'plain_value'   => $request -> plain_value,
+                'plain_value'               => $request -> plain_value,
             ]);
             $shipping_method -> value = $request -> value;
             $shipping_method -> save();
@@ -55,6 +55,7 @@ class SettingsController extends Controller
 
             return redirect() -> back() -> with(['success' => 'تم التحديث بنجاح']);
         } catch (\Exception $ex) {
+            return $ex;
             return redirect() -> back() -> with(['error' => 'هناك خطأ ما، حاول مرة أخرى']);
             DB::rollback();
         }
