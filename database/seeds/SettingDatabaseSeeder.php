@@ -25,10 +25,10 @@ class SettingDatabaseSeeder extends Seeder
             'locale_shipping_cost'      =>  0,
             'outer_shipping_cost'       =>  0,
             'translatable'    =>  [
-                'store_name'            => 'Store',
-                'free_shipping_label'   => 'Free Shipping',
-                'local_shipping_label'  => 'Local Shipping',
-                'outer_shipping_label'  => 'Outer Shipping'
+                'store_name'            => 'متجر',
+                'free_shipping_label'   => 'توصيل مجاني',
+                'local_shipping_label'  => 'توصيل محلي',
+                'outer_shipping_label'  => 'توصيل خارجي'
             ],
         ]);
     }
