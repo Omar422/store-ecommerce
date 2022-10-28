@@ -43,7 +43,8 @@ class SettingsController extends Controller
             $shipping_method = Setting::find($id);
 
             // transaction => apply all or nothing
-            DB::transaction();
+            // DB::transaction(function(){//code});
+            DB::beginTransaction();
 
             $shipping_method -> update([
                 'plain_value'               => $request -> plain_value,
