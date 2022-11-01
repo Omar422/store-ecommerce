@@ -20,6 +20,8 @@ Route::group([
     ], function() {
 
         Route::get('/test', function () {
-            return 'hello';
+            $cat = \App\Models\Category::first();
+            $cat -> makeVisible('translations');
+            return $cat;
         });
 });
