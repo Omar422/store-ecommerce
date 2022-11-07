@@ -64,6 +64,28 @@ Route::group([
                 Route::get('status/{id}', 'SubCategoriesController@changeStatus')->name('admin.subcategories.status');
             });
 
+            // Brands Routes
+            Route::group(['prefix'=>'brands'], function(){
+                Route::get('/', 'BrandsController@index')->name('admin.brands');
+                Route::get('create', 'BrandsController@create')->name('admin.brands.create');
+                Route::post('store', 'BrandsController@store')->name('admin.brands.store');
+                Route::get('edit/{id}', 'BrandsController@edit')->name('admin.brands.edit');
+                Route::post('update/{id}', 'BrandsController@update')->name('admin.brands.update');
+                Route::get('delete/{id}', 'BrandsController@destroy')->name('admin.brands.delete');
+                Route::get('status/{id}', 'BrandsController@changeStatus')->name('admin.brands.status');
+            });
+
+            // Tags Routes
+            Route::group(['prefix'=>'tags'], function(){
+                Route::get('/', 'TagsController@index')->name('admin.tags');
+                Route::get('create', 'TagsController@create')->name('admin.tags.create');
+                Route::post('store', 'TagsController@store')->name('admin.tags.store');
+                Route::get('edit/{id}', 'TagsController@edit')->name('admin.tags.edit');
+                Route::post('update/{id}', 'TagsController@update')->name('admin.tags.update');
+                Route::get('delete/{id}', 'TagsController@destroy')->name('admin.tags.delete');
+                Route::get('status/{id}', 'TagsController@changeStatus')->name('admin.tags.status');
+            });
+
         });
 
         Route::group([

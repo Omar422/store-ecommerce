@@ -11,12 +11,13 @@ use Illuminate\Http\Request;
 class MainCategoriesController extends Controller
 {
     public function index() {
-        $categories = Category::parent()->orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
+        $categories = Category::with('category_parent')->orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
         return view('dashboard.categories.index', compact('categories'));
     }
 
     public function create() {
-        return view('dashboard.categories.create');
+        $categories = Category::select('id', 'parent_id')->get();
+        return view('dashboard.categories.create', compact('categories'));
     }
 
     public function store(MainCategoryRequest $request) {
@@ -29,6 +30,10 @@ class MainCategoriesController extends Controller
                 $request -> request -> add(['is_active' => 0]);
             else
                 $request -> request -> add(['is_active' => 1]);
+
+            if($request->type == 1) { // maincat or subcat .. if 1 => main
+                $request -> request -> add(['parent_id' => null]);
+            }
 
             $category = Category::create($request->except('_token'));
             $category -> name = $request -> name;
@@ -85,8 +90,7 @@ class MainCategoriesController extends Controller
 
         try {
 
-            $category = Category::orderBy('id', 'DESC')->find($id);
-            // $category = Category::find($id);
+            $category = Category::find($id);
             if(!$category)
                 return redirect() -> route('admin.maincategories') -> with(['error' => 'هذا القسم غير موجود']);
 
