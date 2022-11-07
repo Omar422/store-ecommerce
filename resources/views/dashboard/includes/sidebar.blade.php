@@ -2,8 +2,10 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-            <li class="nav-item active"><a href=""><i class="la la-mouse-pointer"></i><span class="menu-title"
-                        data-i18n="nav.add_on_drag_drop.main">الرئيسية </span></a>
+            <li class="nav-item active">
+                <a href="{{ route('admin.dashboard') }}"><i class="la la-mouse-pointer"></i><span class="menu-title"
+                        data-i18n="nav.add_on_drag_drop.main">الرئيسية </span>
+                </a>
             </li>
 
             <li class="nav-item  open ">
@@ -15,7 +17,7 @@
                     <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">إضافة
-                            لغة جديده </a>
+                            لغة </a>
                     </li>
                 </ul>
             </li>
@@ -34,7 +36,7 @@
                     </li>
                     <li><a class="menu-item" href="{{ route('admin.maincategories.create') }}"
                             data-i18n="nav.dash.crypto">إضافة
-                            قسم جديد </a>
+                            قسم رئسي </a>
                     </li>
                 </ul>
             </li>
@@ -51,7 +53,42 @@
                     </li>
                     <li>
                         <a class="menu-item" href="{{ route('admin.subcategories.create') }}"
-                            data-i18n="nav.dash.crypto">إضافة قسم فرعي جديد </a>
+                            data-i18n="nav.dash.crypto">إضافة قسم فرعي </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> العلامات التجارية </span>
+                    <span
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{ countModel('App\Models\Brand') }}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{ route('admin.brands') }}" data-i18n="nav.dash.ecommerce">
+                            عرض الكل </a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{ route('admin.brands.create') }}" data-i18n="nav.dash.crypto">إضافة
+                            علامة تجارية</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> العلامات </span>
+                    <span
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{ countModel('App\Models\Tag') }}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{ route('admin.tags') }}" data-i18n="nav.dash.ecommerce">
+                            عرض الكل </a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="{{ route('admin.tags.create') }}"
+                            data-i18n="nav.dash.crypto">إضافة علامة</a>
                     </li>
                 </ul>
             </li>
@@ -75,7 +112,8 @@
                     <span class="badge badge badge-warning  badge-pill float-right mr-2"></span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل
+                        </a>
                     </li>
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">إضافة
                             طالب </a>
@@ -90,7 +128,8 @@
                     <span class="badge badge badge-danger  badge-pill float-right mr-2">0</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> تذاكر الطلاب
+                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> تذاكر
+                            الطلاب
                         </a>
                     </li>
                 </ul>
@@ -1015,7 +1054,8 @@
                     <li><a class="menu-item" href="form-switch.html"
                             data-i18n="nav.form_elements.form_switch">Switch</a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.form_elements.form_select.main">Select</a>
+                    <li><a class="menu-item" href="#"
+                            data-i18n="nav.form_elements.form_select.main">Select</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="form-select2.html"
                                     data-i18n="nav.form_elements.form_select.form_select2">Select2</a>
