@@ -7,6 +7,7 @@ use App\Http\Requests\MainCategoryRequest;
 use App\Models\Category;
 use DB;
 use Illuminate\Http\Request;
+use App\Http\Enumerations\CategoryType;
 
 class MainCategoriesController extends Controller
 {
@@ -31,7 +32,7 @@ class MainCategoriesController extends Controller
             else
                 $request -> request -> add(['is_active' => 1]);
 
-            if($request->type == 1) { // maincat or subcat .. if 1 => main
+            if($request->type == CategoryType::mainCategory) { // maincat or subcat .. if 1 => main
                 $request -> request -> add(['parent_id' => null]);
             }
 
