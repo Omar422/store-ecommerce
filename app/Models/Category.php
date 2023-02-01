@@ -36,6 +36,11 @@ class Category extends Model
         return $this -> is_active == 0 ? 'غير مفعل' : 'مفعل';
     }
 
+    // return the active category
+    public function scopeActive($q) {
+        return $q -> where('is_active', 1);
+    }
+
     public function category_parent() {
         return $this->belongsTo(self::class, 'parent_id');
     }

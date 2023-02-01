@@ -24,24 +24,24 @@
 
 
             <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الأقسام الرئيسيه </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">الأقسام </span>
                     <span class="badge badge badge-danger badge-pill float-right mr-2">
                         {{-- {{ \App\Models\Category::parent()->count() }} --}}
                         {{ countCategories('parent') }}
                     </span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{ route('admin.maincategories') }}"
+                    <li class="active"><a class="menu-item" href="{{ route('admin.categories') }}"
                             data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="{{ route('admin.maincategories.create') }}"
+                    <li><a class="menu-item" href="{{ route('admin.categories.create') }}"
                             data-i18n="nav.dash.crypto">إضافة
-                            قسم رئسي </a>
+                            قسم </a>
                     </li>
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
+            {{-- <li class="nav-item"><a href=""><i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">الأقسام الفرعية </span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2">{{ countCategories('child') }}</span>
@@ -56,7 +56,7 @@
                             data-i18n="nav.dash.crypto">إضافة قسم فرعي </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="nav-item"><a href=""><i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main"> العلامات التجارية </span>
@@ -87,36 +87,58 @@
                             عرض الكل </a>
                     </li>
                     <li>
-                        <a class="menu-item" href="{{ route('admin.tags.create') }}"
-                            data-i18n="nav.dash.crypto">إضافة علامة</a>
+                        <a class="menu-item" href="{{ route('admin.tags.create') }}" data-i18n="nav.dash.crypto">إضافة
+                            علامة</a>
                     </li>
                 </ul>
             </li>
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المتاجر </span>
-                    <span class="badge badge badge-success badge-pill float-right mr-2"></span>
+                    <span class="menu-title" data-i18n="nav.dash.main"> المنتجات </span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">
+                        {{ countModel('App\Models\Product') }}
+                    </span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    <li class="active"><a class="menu-item" href="{{ route('admin.products') }}"
+                            data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">إضافة
-                            متجر </a>
+                    <li><a class="menu-item" href="{{ route('admin.products.general.create') }}"
+                            data-i18n="nav.dash.crypto">إضافة
+                            منتج </a>
                     </li>
                 </ul>
             </li>
 
-
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الطلاب </span>
-                    <span class="badge badge badge-warning  badge-pill float-right mr-2"></span>
+                    <span class="menu-title" data-i18n="nav.dash.main"> خصائص المنتجات </span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">
+                        {{ countModel('App\Models\Attribute') }}
+                    </span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل
-                        </a>
+                    <li class="active"><a class="menu-item" href="{{ route('admin.attributes') }}"
+                            data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">إضافة
-                            طالب </a>
+                    <li><a class="menu-item" href="{{ route('admin.attributes.create') }}"
+                            data-i18n="nav.dash.crypto">إضافة
+                            خاصية جديدة </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href=""><i class="la la-male"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> خيارات خصائص المنتجات </span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">
+                        {{ countModel('App\Models\Option') }}
+                    </span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{ route('admin.attribute.options') }}"
+                            data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                    <li><a class="menu-item" href="{{ route('admin.attribute.options.create') }}"
+                            data-i18n="nav.dash.crypto">إضافة خيار جديد لخاصية</a>
                     </li>
                 </ul>
             </li>

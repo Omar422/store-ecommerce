@@ -27,9 +27,16 @@ class Brand extends Model
         return $this -> is_active == 0 ? 'غير مفعل' : 'مفعل';
     }
 
+    // return the active brands
+    public function scopeActive($q) {
+        return $q -> where('is_active', 1);
+    }
+
+
     public function getPhotoPath($val) {
         return ($val !== null) ? asset('assets/images/brands/' . $val) : "" ;
     }
+
 
     // // not return with queries
     // protected $hidden = ['translations'];
