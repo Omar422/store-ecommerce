@@ -48,6 +48,14 @@ class Product extends Model
         'deleted_at',
     ];
 
+    public function getActive() {
+        return $this -> is_active == 0 ? 'غير مفعل' : 'مفعل';
+    }
+
+    public function scopeActive($q) {
+        return $q -> where('is_active', 1);
+    }
+
     // relations
 
     public function brand() {
@@ -60,6 +68,10 @@ class Product extends Model
 
     public function tags() {
         return $this->belongsToMany(Tag::class, 'product_tags');
+    }
+
+    public function options() {
+        return $this->hasMany(Option::class, 'product_id');
     }
 
 }

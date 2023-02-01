@@ -5,21 +5,20 @@ namespace App\Models;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Attribute extends Model
 {
     use Translatable;
 
     // the relations to eager load on every query
     protected $with = ['translations'];
-
+    // the translated column
     protected $translatedAttributes = ['name'];
 
-    protected $fillable = ['slug'];
+    protected $guarded = [];
+    public $timestamps = false;
 
-    protected $hidden = ['translations'];
+    public function options() {
+        return $this->hasMany(Option::class, 'attribute_id');
+    }
 
-    // // return the active brands
-    // public function scopeActive($q) {
-    //     return $q -> where('is_active', 1);
-    // }
 }

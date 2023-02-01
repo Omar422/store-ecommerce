@@ -13,7 +13,7 @@
                                     <a href="{{ route('admin.dashboard') }}">الرئيسية </a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="{{ route('admin.maincategories') }}"> الاقسام الرئيسية </a>
+                                    <a href="{{ route('admin.categories') }}"> الاقسام الرئيسية </a>
                                 </li>
                                 <li class="breadcrumb-item active"> إضافة قسم رئيسي </li>
                             </ol>
@@ -43,7 +43,7 @@
                                 @include('dashboard.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{ route('admin.maincategories.store') }}"
+                                        <form class="form" action="{{ route('admin.categories.store') }}"
                                             method="POST" enctype="multipart/form-data">
                                             @csrf
 
